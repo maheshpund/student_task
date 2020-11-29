@@ -1,4 +1,6 @@
 # from django.contrib.auth.models import User
+from pydoc import doc
+
 from django.shortcuts import render
 from django.views import View
 from rest_framework import status
@@ -48,11 +50,8 @@ class StudentView(APIView):
 class DataView(View):
     def get(self,request):
         stu = Student.objects.all()
-        sub = Subjects.objects.all()
-        teacher = Teacher.objects.all()
-
         template = 'data.html'
-        context = {'stu':stu,'sub':sub,'teacher':teacher}
+        context = {'stu':stu}
         return render(request,template,context)
 
 

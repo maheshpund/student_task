@@ -23,13 +23,15 @@ table {border-collapse: collapse; width: 40%;height: 20%; text-align:center;}
             <td>{{ i.id }}</td>
             <td>{{ i.student_name }}</td>
             <td>
-                {% for j in teacher %}
-                        {{j}},
+                {% for j in i.teachers.all %}
+                    {{j}},
                 {% endfor %}
             </td>
             <td>
-                {% for j in sub %}
-                        {{j.subject_name}},
+                {% for j in i.teachers.all %}
+                    {% for k in j.subjects.all %}
+                        {{k.subject_name}},
+                    {% endfor %}
                 {% endfor %}
             </td>
         </tr>
