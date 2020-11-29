@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data</title>
+    <style>
+table {border-collapse: collapse; width: 40%;height: 20%; text-align:center;}
+
+</style>
+</head>
+<body>
+
+<form style="font-size:150%;" method="post">
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Teachers</th>
+            <th>Subjects</th>
+        </thead>
+        {% for i in stu %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.student_name }}</td>
+            <td>
+                {% for j in teacher %}
+                        {{j}},
+                {% endfor %}
+            </td>
+            <td>
+                {% for j in sub %}
+                        {{j.subject_name}},
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</form>
+</body>
+</html>
