@@ -5,8 +5,8 @@ from django.db import models
 class User(AbstractUser):
     """ creating role based user to identify user """
     ROLE_CHOICES = (
-        ('STUDENT', 'student'),
-        ('TEACHER', 'teacher'),
+        ('student', 'student'),
+        ('teacher', 'teacher'),
     )
 
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
